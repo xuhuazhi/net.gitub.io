@@ -1,0 +1,258 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>火药</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- <script type="text/javascript" src="js/area_echarts.js"></script> -->
+	<link rel="stylesheet" href="css/comon0.css">
+</head>
+<script>
+	$(document).ready(function () {
+		var whei = $(window).width()
+		$("html").css({ fontSize: whei / 20 })
+		$(window).resize(function () {
+			var whei = $(window).width()
+			$("html").css({ fontSize: whei / 20 })
+		});
+	});
+</script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+
+<body>
+	<div class="loading">
+		<div class="loadbox"> <img src="images/loading.gif"> 页面加载中... </div>
+	</div>
+	<div class="canvas1" style="opacity: .2">
+		<iframe frameborder="0" src="js/index.html" style="width: 100%; height: 100%"></iframe>
+	</div>
+	<div class="head">
+
+		<h1><a href="../主页面/主板.html">火药</a>
+	</div>
+	</h1>
+	<div class="weather"><!--<img src="images/weather.png"><span>多云转小雨</span>--><span id="showTime"></span></div>
+	<style>
+		#showTime {
+			color: white;
+			font-size: 24px;
+			font-family: Arial, sans-serif;
+			text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+			padding: 20px;
+			text-align: center;
+
+			/* 改为蓝色半透明背景 */
+			border-radius: 10px;
+			display: inline-block;
+			backdrop-filter: blur(5px);
+			/* 可选：增加背景模糊效果 */
+		}
+
+		@media (max-width: 768px) {
+			#showTime {
+				font-size: 18px;
+				padding: 10px;
+			}
+		}
+	</style>
+	<script>
+		var t = null;
+		t = setTimeout(time, 1000);
+
+		function time() {
+			clearTimeout(t);
+			const dt = new Date();
+			// 使用模板字符串优化代码
+			document.getElementById("showTime").innerHTML = `
+		        北京时间：${dt.getFullYear()}年
+		        ${(dt.getMonth() + 1).toString().padStart(2, '0')}月
+		        ${dt.getDate().toString().padStart(2, '0')}日
+		        ${dt.getHours().toString().padStart(2, '0')}时
+		        ${dt.getMinutes().toString().padStart(2, '0')}分
+		        ${dt.getSeconds().toString().padStart(2, '0')}秒
+		    `.replace(/\n\s+/g, ''); // 移除换行和空格
+
+			t = setTimeout(time, 1000);
+		}
+	</script>
+	</div>
+
+	<div class="mainbox">
+		<ul class="clearfix">
+			<li>
+				<!-- 左第一个图 -->
+				<div class="boxall">
+					<div class="alltitle">截止2025年的数据</div>
+					<div class="sycm">
+						<ul class="clearfix">
+							<li>
+								<h2>1629个<h2>
+										<span>总专利数量</span>
+							</li>
+							<li>
+								<h2>864 亿</h2>
+								<span>传统市场销售</span>
+							</li>
+							<li>
+								<h2> 14亿美元</h2>
+								<span>收入</span>
+							</li>
+						</ul>
+					</div>
+					<div class="boxfoot"></div>
+				</div>
+				<!-- 左第二个图 -->
+				<div class="boxall">
+					<div class="alltitle alltitle2">
+						关于火药的重大事件
+					</div>
+					<ul class="tabnav">
+						<li style=" height: auto;">
+							<div class="gdhead">
+								<span>时间</span><span>地点 </span><span>人物</span><span>事件</span> <span>影响</span>
+
+							</div>
+							<div class="scrollDiv" style=" height:1.63rem">
+
+								<ul class="smjl">
+									<li><span>9世纪</span><span>中国长安</span><span>炼丹术士</span><span>发现爆炸特性</span><span>奠定火药发明基础</span>
+									</li>
+									<li><span>1044</span><span>中国汴京</span><span>曾公亮</span><span>《武经总要》</span><span>火药军事化理论</span>
+									</li>
+									<li><span>1232</span><span>中国开封</span><span>金朝守军</span><span>"震天雷"火药武器</span><span>爆炸性火器战场</span>
+									</li>
+									<li><span>13世纪中叶</span><span>阿拉伯地区</span><span>蒙古西征军</span><span>火药传入伊斯兰</span><span>火药中东传播</span>
+									</li>
+									<li><span>1346</span><span>法国克雷西</span><span>英王爱德华三世</span><span>战场用青铜火炮</span><span>城堡防御体系淘汰</span>
+									</li>
+									<li><span>15世纪</span><span>德国纽伦堡</span><span>约翰·古腾堡</span><span>状火绳枪的完善</span><span>奠定近代步兵战术</span>
+									</li>
+									<li><span>1521</span><span>麦哲伦舰队</span><span>麦哲伦船队</span><span>火药武器征服部落</span><span>加速全球殖民扩张</span>
+									</li>
+									<li><span>1627</span><span>匈牙利</span><span>卡西米尔·森贝拉</span><span>黑火药爆破技术</span><span>工业革命矿产开发</span>
+									</li>
+									<li><span>1846</span><span>瑞士</span><span>弗里德里希</span><span>合成硝化甘油</span><span>高爆炸药奠定基础</span>
+									</li>
+									<li><span>1867</span><span>瑞典</span><span>诺贝尔</span><span>发明达纳炸药</span><span>工程提升300%</span>
+									</li>
+									<li><span>1944</span><span>德国佩内明德</span><span>冯·布劳恩团队</span><span>固体推进剂</span><span>奠定航天技术基础</span>
+									</li>
+									<li><span>1969</span><span>美国</span><span>NASA</span><span>复合推进剂</span><span>人类进入太空时代</span>
+									</li>
+									<li><span>2020</span><span>中国文昌</span><span>长征五号团队</span><span>NEPE固体推进剂</span><span>太空站建设突破</span>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+					</ul>
+					<div class="boxfoot"></div>
+				</div>
+				<!-- 左第三个图 -->
+				<div class="boxall">
+
+					<div class="chart" id="echart5" style="height: 3.47rem"></div>
+					<div class="boxfoot">
+					</div>
+				</div>
+
+			</li>
+			<li>
+				<div class="map">
+					<div id="compass3d-container" style="width: 100%; height: 100%; position: relative;"></div>
+					<!-- <div class="map1"><img src="images/lbx.png"></div>
+					<div class="map2"><img src="images/jt.png"></div>
+					<div class="map3"><img src="images/map.png"></div>
+					<div class="map4" id="map_1">
+					</div> -->
+
+				</div>
+				<!-- 中间下面的图 -->
+				<div class="boxall">
+					<div class="alltitle">火药的关键发展史</div>
+					<div class="chart" id="echart4" style="height: 1.86rem"></div>
+
+					<div class="boxfoot"></div>
+				</div>
+			</li>
+			<li>
+				<!-- 右边第一个图 -->
+				<div class="boxall" style="height:6rem">
+
+					<div class="alltitle "></div>
+					<!-- 1.1 -->
+					<!-- <div class="alltitle2">小标题1
+						<div class="titabs">
+							<a href="#" class="active jsy1">标签1</a><a class="jsy2" href="#">标签2</a><a class="jsy3"
+								href="#">标签3</a>
+						</div>
+					</div> -->
+					<div class="allnav2 chart" id="echart21" style="height: 48%"></div>
+					<!-- 1.2 -->
+					<!-- <div class=" alltitle2">小标题2
+						<div class="titabs">
+							<a href="#" class="active tr01">标签1</a><a class="tr02" href="#">标签2 </a><a class="tr03"
+								href="#">标签3</a>
+						</div>
+					</div> -->
+					<div class="allnav2 chart" id="echart22" style="height: 52%"></div>
+					<!-- 1.3 -->
+					<!-- <div class=" alltitle2">小标题3 </div>
+					<div class="allnav2" style="height: 22%">
+						<div class="feng" id="feng01"></div>
+						<div class="feng" id="feng02"></div>
+						<div class="feng" id="feng03"></div>
+					</div> -->
+					<div class="boxfoot"></div>
+				</div>
+				<!-- 右第二个图 -->
+				<div class="boxall" style="height: 3rem;">
+
+					<div class="alltitle">
+					</div>
+					<div class="columns">
+
+						<div class="pie chart1" id="echart6"></div>
+
+
+					</div>
+
+					<!-- <div class="column">
+							<div class="pie" id="echart7"></div>
+							<h3>现代</h3> -->
+
+
+				</div>
+
+				<div class="boxfoot"></div>
+	</div>
+	</li>
+	</ul>
+	</div>
+
+	<div class="back"></div>
+
+
+
+	<script language="JavaScript" src="js/js.js"></script>
+	<!-- 滚动插件 -->
+	<script src="js/jquery.liMarquee.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+	<!-- 3d模型加载 -->
+	<script src="js/main.js"></script>
+	<!-- 初始话滚动效果 -->
+	<script>
+		$(function () {
+			$('.scrollDiv').liMarquee({
+				direction: 'up',
+				scrollamount: 30,
+				runshort: false
+			});
+		});
+	</script>
+</body>
+
+</html>
