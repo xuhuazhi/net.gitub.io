@@ -31,7 +31,7 @@ function init() {
 
     // 加载模型
     const loader = new THREE.GLTFLoader();
-    loader.load('/net.gitub.io/造纸术/models/zaozhishu.glb', (loadedGltf) => {
+    loader.load('models/zaozhishu.glb', (loadedGltf) => {
         // 自动居中模型
         const box = new THREE.Box3().setFromObject(loadedGltf.scene);
         const center = box.getCenter(new THREE.Vector3());
